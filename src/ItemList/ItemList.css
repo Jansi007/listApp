@@ -1,0 +1,35 @@
+#baseItemList{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#wrapper{
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#circle{
+	width: 30px;
+	height: 30px;
+	border: 2px solid #555555;
+	border-radius: 15px;
+	margin: 2vh;
+}
+
+#addIcon{
+	margin: 20px;
+	color: #555555;
+	border-radius: 1px;
+	cursor: pointer;
+	-webkit-tap-highlight-color:  transparent; 
+}
+
+#itemWrapper{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
