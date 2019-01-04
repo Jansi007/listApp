@@ -7,7 +7,7 @@ import CheckBtn from '../CheckBtn/CheckBtn';
 class Item extends Component{
 
 	componentDidMount(){
-		console.log(this.props.key)
+		
 	}
 
 	render(){
@@ -16,7 +16,7 @@ class Item extends Component{
 					<div id="wrapperItem">
 						<div id="inner">
 							<h6>{this.props.inner}</h6>
-							<CheckBtn id={this.props.inner} />
+							<CheckBtn id={this.props.id} />
 						</div>
 						<div id="divider"></div>
 					</div>

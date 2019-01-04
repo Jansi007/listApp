@@ -4,6 +4,7 @@
 	height: 20px;
 	border-radius: 10px;
 	margin-top: 10px;
+	margin-bottom: 5px;
 	transition: .2s;
 	-webkit-tap-highlight-color:  transparent;
 	cursor: pointer;

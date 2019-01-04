@@ -3,21 +3,52 @@ import './ItemList.css';
 import MaterialIcon from 'material-icons-react';
 import Item from '../Item/Item';
 import items from '../items.js';
+import TextBox from '../TextBox/TextBox';
 
 class ItemList extends Component{
 
 	constructor(){		
-		const itemsInList = items.map((event, i) => {
-			return <Item inner={items[i]} key={i} />
-		})
-
 		super();
 		this.state = {
 			items: items,
-			itemsInList: itemsInList,
+			itemsInList: [],
+			addItem: false,
+			textBox: undefined,
+			textBoxValue: ''
+
 		}
 
-	}
+	};
+
+	addItem = () =>{
+
+		let mem = this.state.textBoxValue
+
+		if(this.state.addItem === false){
+			this.setState({ textBox: <TextBox onTextChange={this.onTextChange} />})
+			this.setState({ addItem: true})
+			document.getElementById('addWrapper').style = "justify-content: flex-start;"
+		}
+		else{
+			items.push(mem)
+			this.updateList()
+			this.setState({ textBox: undefined})
+			this.setState({ addItem: false})
+			document.getElementById('addWrapper').style = "justify-content: center;"
+		}
+	};
+
+	updateList = () =>{
+		this.setState({ itemsInList: items.map((event, i) => {return <Item inner={items[i]} key={i} id={i} />}) })
+	};
+
+	componentDidMount(){
+		this.updateList()	
+	};
+
+	onTextChange = (event) =>{
+		this.setState({textBoxValue: event.target.value})
+	};
 
 	render(){
 		return(
@@ -26,7 +57,10 @@ class ItemList extends Component{
 						<div id="itemWrapper">
 							{this.state.itemsInList}
 						</div>
-						<MaterialIcon icon="add_circle_outline" size={35} id="addIcon" />
+						<div id="addWrapper">
+							{this.state.textBox}
+							<MaterialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} />							
+						</div>
 					</div>
 				</div>
 			);

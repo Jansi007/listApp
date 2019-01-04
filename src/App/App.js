@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div id="baseApp">
-    	<List name="Shopping List" />
+    	<List name="Shopping List" color="teal" />
       </div>
     );
   }

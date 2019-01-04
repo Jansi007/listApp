@@ -1,3 +1,3 @@
-const items = ["Milk", "Eggs", "Bread"]
+const items = []
 
 export default items;
