@@ -27,19 +27,21 @@ class ItemList extends Component{
 		if(this.state.addItem === false){
 			this.setState({ textBox: <TextBox onTextChange={this.onTextChange} />})
 			this.setState({ addItem: true})
-			document.getElementById('addWrapper').style = "justify-content: flex-start;"
 		}
 		else{
 			items.push(mem)
 			this.updateList()
 			this.setState({ textBox: undefined})
 			this.setState({ addItem: false})
-			document.getElementById('addWrapper').style = "justify-content: center;"
 		}
 	};
 
+	delItem = () =>{
+		console.log("test")
+	};
+
 	updateList = () =>{
-		this.setState({ itemsInList: items.map((event, i) => {return <Item inner={items[i]} key={i} id={i} />}) })
+		this.setState({ itemsInList: items.map((event, i) => {return <Item inner={items[i]} key={i} id={i} delItem={this.delItem} />}) })
 	};
 
 	componentDidMount(){
