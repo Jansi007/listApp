@@ -5,6 +5,13 @@ import CheckBtn from '../CheckBtn/CheckBtn';
 
 class Item extends Component{
 
+	constructor(){
+		super();
+		this.state = {
+			name: this.props.inner
+		}
+	}
+
 	componentDidMount(){
 		
 	}
