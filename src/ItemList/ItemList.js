@@ -36,8 +36,8 @@ class ItemList extends Component{
 		}
 	};
 
-	delItem = () =>{
-		console.log("test")
+	delItem(){
+		console.log()
 	};
 
 	updateList = () =>{
