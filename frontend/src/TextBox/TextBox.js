@@ -6,7 +6,7 @@ class TextBox extends Component{
 	render(){
 		return(
 			<div id="searchWrapper">
-				<input type="textfield" id="textBox" placeholder="name" onChange={this.props.onTextChange} />
+				<input type="textfield" id="textBox" autoFocus onChange={this.props.onTextChange} />
 			</div>
 			);
 	}
