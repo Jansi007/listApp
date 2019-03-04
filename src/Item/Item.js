@@ -4,16 +4,9 @@ import MaterialIcon from 'material-icons-react';
 import CheckBtn from '../CheckBtn/CheckBtn';
 
 class Item extends Component{
-
-	constructor(){
-		super();
-		this.state = {
-			name: ""
-		}
-	}
-
+	
 	componentDidMount(){
-		this.setState({name: this.props.inner});
+		console.log(this.props.inner)
 	}
 
 	render(){
