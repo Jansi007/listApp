@@ -1,0 +1,15 @@
+#topBase{
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+}
+
+#heading{
+	background-color: #555555;
+	color: #ffffff;
+	padding: 2vh 5vw 3vh 5vw;
+	text-align: center;
+	border-radius: 5px;
+	border-top: 1vh solid teal;
+	font-size: 3em;
+}
