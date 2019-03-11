@@ -19,15 +19,3 @@
 	width: 80%;
 }
 
-#endWrapper{
-	width: 15vw;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-#delIcon{
-	margin-top: 5px;
-	color: #ad3535;
-	cursor: pointer;
-}

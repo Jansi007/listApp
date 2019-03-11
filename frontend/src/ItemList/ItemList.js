@@ -22,7 +22,7 @@ class ItemList extends Component{
 
 	addItem = () =>{
 
-		let mem = this.state.textBoxValue
+		const mem = this.state.textBoxValue
 
 		if(this.state.addItem === false){
 			this.setState({ textBox: <TextBox onTextChange={this.onTextChange} />})
@@ -36,16 +36,18 @@ class ItemList extends Component{
 		}
 	};
 
-	delItem(){
-		console.log()
-	};
-
 	updateList = () =>{
-		this.setState({ itemsInList: items.map((event, i) => {return <Item inner={items[i]} key={i} id={i} delItem={this.delItem} />}) })
+		this.setState({ itemsInList: items.map((event, i) => {return <Item inner={items[i]} key={i} id={i} />}) })
 	};
 
 	componentDidMount(){
 		this.updateList()	
+
+		document.addEventListener('keypress', (event) => {
+			if(event.keyCode === 13 && this.state.addItem === true){
+				this.addItem()
+			}
+		})
 	};
 
 	onTextChange = (event) =>{
