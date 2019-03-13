@@ -57,7 +57,14 @@ app.get('/delList/', (req, res) => {
 	db('lists')
 		.where('name', req.body.name)
 		.del()
-		.then(data => res.json("Deleted " + data + " lists"))
+		.then(data => {
+			if(data = 1){
+				res.json("Deleted " + data + " list")
+			}
+			else{
+				res.json("Deleted " + data + " lists")	
+			}
+		})
 
 
 })
