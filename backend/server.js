@@ -13,23 +13,12 @@ const db = knex({
 	client: 'pg',
 	connection: {
 		host: '127.0.0.1',
-<<<<<<< HEAD
-		user: 'postgres',
-		password: 'Titaom50$',
-		database: 'listsAppDb'
-	}
-});
-
-db.select('*').from('lists').then(data => console.log(data))
-
-=======
 		user: 'jannis',
 		password: 'Titaom50$',
 		database: 'listappdb'
 	}
 });
 
->>>>>>> 254d8a89ddf842d8f718736dd9fc92f4bd0d6f77
 app.get('/', (req, res) => {
 	res.json('Server is running!')
 })
@@ -43,19 +32,13 @@ app.get('/delItem/', (req, res) => {
 })
 
 app.get('/getList', (req, res) => {
-<<<<<<< HEAD
-	
-=======
 	db.select('*')
 		.from('lists')
 		.then(data => res.json(data))
->>>>>>> 254d8a89ddf842d8f718736dd9fc92f4bd0d6f77
 })
 
 app.get('/addList/', (req, res) => {
 	
-<<<<<<< HEAD
-=======
 	db('lists')
 	.insert({
 		name: req.body.name,
@@ -67,16 +50,10 @@ app.get('/addList/', (req, res) => {
 
 	db.select('*').from('lists').then(data => res.json(data))
 
->>>>>>> 254d8a89ddf842d8f718736dd9fc92f4bd0d6f77
 })
 
 app.get('/delList/', (req, res) => {
 	
-<<<<<<< HEAD
-})
-
-app.listen(port, () => console.log(`This server is listening on port ${port}`))
-=======
 	db('lists')
 		.where('name', req.body.name)
 		.del()
@@ -87,4 +64,3 @@ app.listen(port, () => console.log(`This server is listening on port ${port}`))
 
 app.listen(port, () => console.log(`This server is listening on port ${port}`))
 
->>>>>>> 254d8a89ddf842d8f718736dd9fc92f4bd0d6f77
