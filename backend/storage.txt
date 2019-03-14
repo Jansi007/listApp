@@ -1,0 +1,17 @@
+/*db.schema.createTable(req.body.name, table => {
+			table.increments();
+			table.string('name').unique();
+		}).then(console.log())
+
+		db('lists')
+		.insert({
+			name: req.body.name,
+			renew: req.body.renew,
+			hr: req.body.hr
+			})
+		.then(data => console.log(data.command + " '" + req.body.name + "'' "))
+		.catch(console.log)
+
+		db.select('*').from('lists').then(data => res.json(data))*/
+
+--------------------------------------------------------------------------------------

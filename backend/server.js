@@ -31,7 +31,7 @@ app.get('/delItem/', (req, res) => {
 	
 })
 
-app.get('/getList', (req, res) => {
+app.get('/getAllLists/', (req, res) => {
 	db.select('*')
 		.from('lists')
 		.then(data => res.json(data))
@@ -39,17 +39,33 @@ app.get('/getList', (req, res) => {
 
 app.get('/addList/', (req, res) => {
 	
-	db('lists')
-	.insert({
-		name: req.body.name,
-		renew: req.body.renew,
-		hr: req.body.hr
+	const {name, renew, hr} = req.body
+
+	db.transaction(trx => {
+
+		trx.insert({
+			name: name,
+			renew: renew,
+			hr: hr
+		})
+		.into('lists')
+		.returning('name')
+		.then(listName => {
+			return trx.schema.createTable(listName[0], table => {
+					table.increments();
+					table.string('name').unique();
+				})
+			.then(data => console.log(data[0].command + " '" + listName + "' "))
+			.catch(err => {
+				console.log(err)
+				trx.rollback
+			})
+
+		})
+		.then(trx.commit)
+		.then(res.json("added list " + " '" + name + "' "))
+		.catch(trx.rollback)
 	})
-	.then(console.log)
-	.catch(console.log)
-
-	db.select('*').from('lists').then(data => res.json(data))
-
 })
 
 app.get('/delList/', (req, res) => {
@@ -58,7 +74,7 @@ app.get('/delList/', (req, res) => {
 		.where('name', req.body.name)
 		.del()
 		.then(data => {
-			if(data = 1){
+			if(data == 1){
 				res.json("Deleted " + data + " list")
 			}
 			else{
@@ -66,6 +82,8 @@ app.get('/delList/', (req, res) => {
 			}
 		})
 
+	db.schema.dropTable(req.body.name)
+		.then(data => console.log(data.command + " '" + req.body.name + "' "))
 
 })
 
