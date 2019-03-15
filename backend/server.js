@@ -24,11 +24,41 @@ app.get('/', (req, res) => {
 })
 
 app.get('/addItem/', (req, res) => {
+	const {list, item} = req.body
+
+	db(list)
+		.insert({
+			name: item
+		})
+		.then(console.log)
+		.then(res.json('success'))
+		.catch(err => {
+			console.log(err)
+			res.status(400).json('an error occurred')
+		})
 
 })
 
 app.get('/delItem/', (req, res) => {
-	
+	const {list, item} = req.body
+
+	db(list)
+		.where('name', item)
+		.del()
+		.then(res.json('success'))
+		.catch(err => {
+			console.log(err)
+			res.status(400).json('an error occurred')
+		})
+})
+
+app.get('/getList/', (req, res) => {
+	const {list} = req.body
+
+	db.select('*')
+		.from(list)
+		.then(data => res.json(data))
+		.catch(err => res.status(400).json('an error occurred'))
 })
 
 app.get('/getAllLists/', (req, res) => {
@@ -63,15 +93,17 @@ app.get('/addList/', (req, res) => {
 
 		})
 		.then(trx.commit)
-		.then(res.json("added list " + " '" + name + "' "))
+		.then(res.json("success"))
 		.catch(trx.rollback)
 	})
 })
 
 app.get('/delList/', (req, res) => {
-	
+
+	const {name} = req.body
+
 	db('lists')
-		.where('name', req.body.name)
+		.where('name', name)
 		.del()
 		.then(data => {
 			if(data == 1){
@@ -82,8 +114,8 @@ app.get('/delList/', (req, res) => {
 			}
 		})
 
-	db.schema.dropTable(req.body.name)
-		.then(data => console.log(data.command + " '" + req.body.name + "' "))
+	db.schema.dropTable(name)
+		.then(data => console.log(data.command + " '" + name + "' "))
 
 })
 
