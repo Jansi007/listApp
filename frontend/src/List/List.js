@@ -8,7 +8,7 @@ class List extends Component{
 		return(
 			<div id="shoppingList">
 				<TopBar name={this.props.name} />
-				<ItemList />
+				<ItemList listName={this.props.name} />
 			</div>
 			);
 	}

@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 	res.json('Server is running!')
 })
 
-app.get('/addItem/', (req, res) => {
+app.post('/addItem/', (req, res) => {
 	const {list, item} = req.body
 
 	db(list)
@@ -39,7 +39,7 @@ app.get('/addItem/', (req, res) => {
 
 })
 
-app.get('/delItem/', (req, res) => {
+app.post('/delItem/', (req, res) => {
 	const {list, item} = req.body
 
 	db(list)
@@ -52,7 +52,7 @@ app.get('/delItem/', (req, res) => {
 		})
 })
 
-app.get('/getList/', (req, res) => {
+app.post('/getList/', (req, res) => {
 	const {list} = req.body
 
 	db.select('*')
@@ -61,13 +61,13 @@ app.get('/getList/', (req, res) => {
 		.catch(err => res.status(400).json('an error occurred'))
 })
 
-app.get('/getAllLists/', (req, res) => {
+app.post('/getAllLists/', (req, res) => {
 	db.select('*')
 		.from('lists')
 		.then(data => res.json(data))
 })
 
-app.get('/addList/', (req, res) => {
+app.post('/addList/', (req, res) => {
 	
 	const {name, renew, hr} = req.body
 
@@ -98,7 +98,7 @@ app.get('/addList/', (req, res) => {
 	})
 })
 
-app.get('/delList/', (req, res) => {
+app.post('/delList/', (req, res) => {
 
 	const {name} = req.body
 
