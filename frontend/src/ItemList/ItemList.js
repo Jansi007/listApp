@@ -33,8 +33,7 @@ class ItemList extends Component{
 				list: listName,
 				item: mem
 			})
-		}).then(this.updateList())
-			
+		}).then(this.updateList)
 		this.setState({ textBox: undefined})
 		this.setState({ addItem: false})
 		}
@@ -66,7 +65,6 @@ class ItemList extends Component{
 		 .then(data => data.json())
 		 .then(data => {
 		 	const arr = []
-		 	console.log(arr)
 		 	data.map(item => arr.push(item.name))
 		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item} key={i} id={i} delItem={this.delItem} />}) })
 		 })
@@ -75,7 +73,7 @@ class ItemList extends Component{
 	componentDidMount(){	
 		this.updateList()	
 
-		document.addEventListener('keypress', (event) => {
+		document.addEventListener('keypress',event =>{
 			if(event.keyCode === 13 && this.state.addItem === true){
 				this.addItem()
 			}

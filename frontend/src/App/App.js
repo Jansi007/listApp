@@ -3,10 +3,17 @@ import './App.css';
 import List from '../List/List'
 
 class App extends Component {
+	constructor(){
+		super();
+		this.state = {
+			listName: 'shopping-list'
+		}
+	}
+
   render() {
     return (
       <div id="baseApp">
-    	<List name="shopping-list" color="teal" />
+    	<List name={this.state.listName} color="teal" />
       </div>
     );
   }
