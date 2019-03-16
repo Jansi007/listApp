@@ -9,7 +9,7 @@ class Item extends Component{
 				<div id="wrapper">
 					<div id="wrapperItem">
 						<div id="inner">
-							<h6>{this.props.inner}</h6>
+							<h6 onClick={() => this.props.delItem(this.props.inner)} >{this.props.inner}</h6>
 								<CheckBtn id={this.props.id} />
 						</div>
 						<div id="divider"></div>
