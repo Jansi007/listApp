@@ -6,7 +6,8 @@ class App extends Component {
 	constructor(){
 		super();
 		this.state = {
-			listName: 'shopping-list'
+			listName: 'shopping-list',
+      display: ''
 		}
 	}
 
