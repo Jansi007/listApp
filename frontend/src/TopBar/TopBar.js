@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
-import 'materialize-css'; // It installs the JS asset only
-import 'materialize-css/dist/css/materialize.min.css';
+import MenuBtn from '../MenuBtn/MenuBtn'
 import './TopBar.css';
 
 class TopBar extends Component{
 	render(){
 		return(
 			<div id="topBase">
-					<h1 id="heading">{this.props.name}</h1>
+					<MenuBtn /> 
+					<div className="centerFlex">
+						<h1 id="heading">{this.props.name}</h1>
+					</div>
 			</div>
 			);
 	}

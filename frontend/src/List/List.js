@@ -7,7 +7,6 @@ class List extends Component{
 	render(){
 		return(
 			<div id="shoppingList">
-				<TopBar name={this.props.name} />
 				<ItemList listName={this.props.name} />
 			</div>
 			);

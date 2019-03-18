@@ -1,15 +1,23 @@
 #topBase{
-	width: 100vw;
+	width: 90vw;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
+	flex-direction: row;
+	border: 1px solid #444444;
+	height: 2em;
+	border-radius: 
 }
 
 #heading{
-	background-color: #555555;
-	color: #ffffff;
-	padding: 2vh 5vw 3vh 5vw;
+	color: #444444;
 	text-align: center;
-	border-radius: 5px;
-	border-top: 1vh solid teal;
-	font-size: 3em;
+	font-size: 1.6em;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	margin: 0;
+}
+
+.centerFlex{
+	display: flex;
+	justify-content: center;
 }

@@ -1,10 +1,12 @@
 import React from 'react'
 import './MenuBtn.css'
 
-const MenuBtn = () = {
+const MenuBtn = () => {
 	return(
-		<div>
-			
+		<div className="menuBox">
+			<div className="menuBar"></div>
+			<div className="menuBar"></div>
+			<div className="menuBar"></div>
 		</div>
 	);
 }
