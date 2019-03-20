@@ -8,7 +8,8 @@ class App extends Component {
 		super();
 		this.state = {
 			listName: 'shopping-list',
-      display: ''
+      display: '',
+      color: "teal"
 		}
 	}
 
@@ -18,8 +19,8 @@ class App extends Component {
 
   render() {
     return (
-      <div id="baseApp">
-      	<TopBar name={this.state.listName} />
+      <div>
+      	<TopBar name={this.state.listName} color={this.state.color} />
     		{this.state.display}
       </div>
     );

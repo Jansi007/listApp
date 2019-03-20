@@ -1,11 +1,7 @@
 #topBase{
-	width: 90vw;
+	width: 100%;
 	display: flex;
-	justify-content: space-between;
-	flex-direction: row;
-	border: 1px solid #444444;
-	height: 2em;
-	border-radius: 
+	justify-content: center;
 }
 
 #heading{
@@ -14,10 +10,7 @@
 	font-size: 1.6em;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-	margin: 0;
-}
-
-.centerFlex{
-	display: flex;
-	justify-content: center;
+	padding: 1em 0;
+	border-radius: .2em;
+	box-shadow: .1em .1em .4em black; 
 }
