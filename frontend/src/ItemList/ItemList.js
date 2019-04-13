@@ -3,6 +3,7 @@ import './ItemList.css';
 import MaterialIcon from 'material-icons-react';
 import Item from '../Item/Item';
 import TextBox from '../TextBox/TextBox';
+import BtnBar from '../BtnBar/BtnBar'
 
 class ItemList extends Component{
 
@@ -97,7 +98,8 @@ class ItemList extends Component{
 						</div>
 						<div id="addWrapper">
 							{this.state.textBox}
-							<MaterialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} />							
+							{/* <MaterialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
+							<BtnBar addItem={this.addItem} id="btnBar" />						
 						</div>
 					</div>
 				</div>

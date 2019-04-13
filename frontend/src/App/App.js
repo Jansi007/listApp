@@ -20,7 +20,6 @@ class App extends Component {
   render() {
     return (
       <div>
-      	<TopBar name={this.state.listName} color={this.state.color} />
     		{this.state.display}
       </div>
     );

@@ -26,7 +26,8 @@ app.get('/', (req, res) => {
 app.post('/addItem/', (req, res) => {
 	const {list, item} = req.body
 
-	db(list)
+	if(item){
+		db(list)
 		.insert({
 			name: item
 		})
@@ -36,7 +37,9 @@ app.post('/addItem/', (req, res) => {
 			console.log(err)
 			res.status(400).json('an error occurred')
 		})
-
+	}else{
+		res.status(400).json('an error occurred')
+	}
 })
 
 app.post('/delItem/', (req, res) => {
