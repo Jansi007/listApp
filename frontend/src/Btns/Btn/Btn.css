@@ -1,4 +1,4 @@
-.addBtn{
+.btn{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -8,6 +8,7 @@
 	border-radius: 2em;
 }
 
-#addIcon{
-	color: white
+#icon{
+	color: white;
+	font-size: 2em;
 }

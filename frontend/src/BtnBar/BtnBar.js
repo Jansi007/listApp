@@ -1,5 +1,5 @@
 import React from 'react'
-import AddBtn from '../AddBtn/AddBtn'
+import Btn from '../Btns/Btn/Btn'
 import MaterialIcon from 'material-icons-react'
 import './BtnBar.css'
 
@@ -7,10 +7,8 @@ const BtnBar = () => {
 	return(
 		<div id="barCon">
 			<div id="bar">
-				<div id="menuBtn">
-					<MaterialIcon icon="menu" size={35} id="addIcon" />
-				</div>
-				<AddBtn />
+				<Btn type="menu" size="2em" />
+				<Btn type="add" size="2em" />
 			</div>
 		</div>
 	);
