@@ -98,7 +98,6 @@ class ItemList extends Component{
 						</div>
 						<div id="addWrapper">
 							{this.state.textBox}
-							{/* <MaterialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
 							<BtnBar addItem={this.addItem} id="btnBar" />						
 						</div>
 					</div>
