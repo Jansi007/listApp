@@ -7,7 +7,7 @@ class App extends Component {
 	constructor(){
 		super();
 		this.state = {
-			listName: 'shopping-list',
+			listName: 'test',
       display: '',
       color: "teal"
 		}
@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div id="app">
     		{this.state.display}
       </div>
     );

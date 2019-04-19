@@ -4,6 +4,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1));
+	padding-top: 3em;
 }
 
 #bar{
@@ -13,5 +15,5 @@
 	height: 3em;
 	background-color: #535353;
 	border-radius: 2em;
-	box-shadow: 0 0 .5em  black
+	box-shadow: 0 0 .5em  black;
 }
