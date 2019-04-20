@@ -1,17 +1,26 @@
-#inner{
+#itemCon{
 	width: 80%;
+}
+
+#inner{
+	color: #535353;
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	font-size: 1em;
-	font-weight: 300;
-	height: 1.5em;
-	background-color: #eeeeee;
-	box-shadow: 0 .1em 1em #888888;
+	height: 1.6em;
 	margin: .3em;
-	padding: 0 0 0 .5em;
 	border-radius: 1em;
 }
 
+.text{
+	margin: 0 .8em 0 0;
+}
 
+.divider{
+	height: 1px;
+	width: 100%;
+	background-color: #aaaaaa;
+}

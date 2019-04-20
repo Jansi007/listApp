@@ -10,11 +10,11 @@ class CheckBtn extends Component{
 			check.addEventListener('click', (event) =>{
 				if(stateCheck){
 					stateCheck = false;
-					check.style = "border: 2px solid #555555; background-color: none;"
+					check.style = "background-color: none;"
 				}
 				else{
 					stateCheck = true;
-					check.style = "border: 2px solid teal; background-color: teal;"
+					check.style = "background-color: #40bf40;"
 				}
 			})
 		}

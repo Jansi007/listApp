@@ -1,11 +1,11 @@
 .check{
-	margin: .25em .4em; 
-	width: 1em;
-	height: 1em;
+	margin: 0; 
+	width: .8em;
+	height: .8em;
 	border-radius: 2em;
 	transition: .2s;
 	-webkit-tap-highlight-color:  transparent;
 	cursor: pointer;
-	background-color: #eeeeee;
-	box-shadow: 0 0 .35em #999999;
+	background-color: none;
+	border: 1px solid #757575;
 }

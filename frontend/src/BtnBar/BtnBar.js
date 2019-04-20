@@ -1,6 +1,5 @@
 import React from 'react'
 import Btn from '../Btns/Btn/Btn'
-import MaterialIcon from 'material-icons-react'
 import './BtnBar.css'
 
 const BtnBar = () => {
@@ -8,6 +7,7 @@ const BtnBar = () => {
 		<div id="barCon">
 			<div id="bar">
 				<Btn type="menu" size="2em" />
+				<div id="divider"></div>
 				<Btn type="add" size="2em" />
 			</div>
 		</div>

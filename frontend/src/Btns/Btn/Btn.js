@@ -3,10 +3,6 @@ import './Btn.css'
 import MaterialIcon from 'material-icons-react'
 
 class Btn extends Component{
-	constructor(){
-		super();
-	}
-
 	render(){
 		return(
 			<div className="btn">

@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import './List.css';
 import ItemList from '../ItemList/ItemList';
+import TopBar from '../TopBar/TopBar';
 
 class List extends Component{
 	render(){
 		return(
-			<div id="shoppingList">
+			<div id="List">
+				<TopBar name={this.props.name} />
 				<ItemList listName={this.props.name} />
 			</div>
 			);

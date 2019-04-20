@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import TopBar from '../TopBar/TopBar'
 import List from '../List/List'
 
 class App extends Component {

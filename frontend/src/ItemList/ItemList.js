@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './ItemList.css';
-import MaterialIcon from 'material-icons-react';
 import Item from '../Item/Item';
 import TextBox from '../TextBox/TextBox';
 import BtnBar from '../BtnBar/BtnBar'
@@ -13,7 +12,8 @@ class ItemList extends Component{
 			itemsInList: [],
 			addItem: false,
 			textBox: undefined,
-			textBoxValue: ''
+			textBoxValue: '',
+			divider: undefined
 
 		}
 	}
@@ -68,6 +68,9 @@ class ItemList extends Component{
 		 	const arr = []
 		 	data.map(item => arr.push(item.name))
 		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item} key={i} id={i} delItem={this.delItem} />}) })
+		 	if(arr){
+		 		this.setState({ divider: <div id="divider" className="divider"></div>})
+		 	}
 		 })
 	}
 
@@ -94,10 +97,12 @@ class ItemList extends Component{
 				<div id="baseItemList">
 					<div id="wrapper">
 						<div id="itemWrapper">
+							{this.state.divider}
 							{this.state.itemsInList}
 						</div>
 						<div id="addWrapper">
 							{this.state.textBox}
+							{/* <MaterialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
 							<BtnBar addItem={this.addItem} id="btnBar" />						
 						</div>
 					</div>

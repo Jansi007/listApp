@@ -7,10 +7,9 @@
 #heading{
 	color: #444444;
 	text-align: center;
-	font-size: 1.6em;
-	font-family: 'Lato', sans-serif;
+	font-size: 2em;
 	font-weight: 300;
 	padding: 1em 0;
 	border-radius: .2em;
-	box-shadow: .1em .1em .4em black; 
+	text-transform: uppercase;
 }
