@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './ItemList.css';
 import Item from '../Item/Item';
-import TextBox from '../TextBox/TextBox';
 import BtnBar from '../BtnBar/BtnBar'
+import TextBox from '../TextBox/TextBox'
+import InnerBar from '../InnerBar/InnerBar'
 
 class ItemList extends Component{
 
@@ -13,38 +14,38 @@ class ItemList extends Component{
 			addItem: false,
 			textBox: undefined,
 			textBoxValue: '',
-			divider: undefined
+			divider: undefined,
+			innerBarContent: <InnerBar addItem={this.addItem} />
 
 		}
 	}
 
 	addItem = () =>{
-		console.log('addItem')
-		// const mem = this.state.textBoxValue
-		// const {listName} = this.props
+		const mem = this.state.textBoxValue
+		const {listName} = this.props
 
-		// if(this.state.addItem === false){
-		// 	this.setState({ textBox: <TextBox onTextChange={this.onTextChange} />})
-		// 	this.setState({ addItem: true})
-		// }
-		// else{
-		// 	fetch('http://localhost:5000/addItem/', {
-		// 	method: 'post',
-		// 	headers: {'Content-Type': 'application/json'},
-		// 	body: JSON.stringify({
-		// 		list: listName,
-		// 		item: mem
-		// 	})
-		// }).then(this.updateList)
-		// this.setState({ textBox: undefined})
-		// this.setState({ addItem: false})
-		// }
+		if(this.state.addItem === false){
+			this.setState({ innerBarContent: <TextBox onTextChange={this.onTextChange} />})
+			this.setState({ addItem: true})
+		}
+		else{
+		this.setState({ innerBarContent: <InnerBar addItem={this.addItem} />})
+			fetch('http://192.168.178.40:2000/addItem/', {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				list: listName,
+				item: mem
+			})
+		}).then(this.updateList)
+		this.setState({ textBox: undefined, textBoxValue: undefined, addItem: false })
+		}
 	}
 
 	delItem = (item) =>{
 		const {listName} = this.props
 
-		fetch('http://localhost:5000/delItem/', {
+		fetch('http://192.168.178.40:2000/delItem/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -57,7 +58,7 @@ class ItemList extends Component{
 	updateList = () =>{
 		const {listName} = this.props
 
-		fetch('http://localhost:5000/getList/', {
+		fetch('http://192.168.178.40:2000/getList/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -84,13 +85,24 @@ class ItemList extends Component{
 			}
 		})
 
-		fetch('http://localhost:5000/')
+		fetch('http://192.168.178.40:2000/')
 			.then(data => data.json())
 			.then(data => console.log(data))
 	}
 
 	onTextChange = (event) =>{
 		this.setState({textBoxValue: event.target.value})
+	}
+
+
+	checkTextBox = () =>{
+		const {addItemState} = this.props
+		if(addItemState === true){
+			this.setState({ innerBar: <TextBox />})
+		}
+		else{
+			this.setState({ innerBar: <InnerBar />})
+		}
 	}
 
 	render(){
@@ -104,7 +116,7 @@ class ItemList extends Component{
 						<div id="addWrapper">
 							{this.state.textBox}
 							{/* <Mate**rialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
-							<BtnBar addItem={this.addItem} id="btnBar" />						
+							<BtnBar innerBarContent={this.state.innerBarContent} id="btnBar" />						
 						</div>
 					</div>
 				</div>

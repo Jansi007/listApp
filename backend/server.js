@@ -4,7 +4,7 @@ const cors = require('cors');
 const knex = require('knex');
 
 const app = express()
-const port = 5000
+const port = 2000
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -31,7 +31,6 @@ app.post('/addItem/', (req, res) => {
 		.insert({
 			name: item
 		})
-		.then(console.log)
 		.then(res.json('success'))
 		.catch(err => {
 			console.log(err)

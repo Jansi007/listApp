@@ -8,19 +8,3 @@
 	padding-top: 3em;
 }
 
-#bar{
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	width: 8em;
-	height: 2em;
-	border-radius: 2em;
-	background-color: #444444;
-}
-
-#divider{
-	width: 2px;
-	height: 75%;
-	background-color: #ffffff;
-	border-radius: 1em;
-}

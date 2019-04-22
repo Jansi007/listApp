@@ -1,0 +1,23 @@
+#addBtnCon{
+	width: 2em;
+}
+
+.line{
+	background-color: #ffffff;
+	width: 1.3em;
+	height: 2px;
+	border-radius: 1em;
+}
+
+.addBtnLine{
+	position: relative;
+	left: .3em;
+}
+
+#addLine1{
+	transform: translate(0, 1px);
+}
+
+#addLine2{
+	transform: rotate(90deg) translate(-1px, 0);
+}

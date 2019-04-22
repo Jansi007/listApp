@@ -3,8 +3,10 @@ import './MenuBtn.css'
 
 const MenuBtn = () => {
 	return(
-			<div>
-				
+			<div id="menuBtnCon">
+				<div className="line menuBtnLine"></div>
+				<div className="line menuBtnLine"></div>
+				<div className="line menuBtnLine" ></div>
 			</div>
 		);
 }

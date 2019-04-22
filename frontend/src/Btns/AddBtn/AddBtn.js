@@ -1,11 +1,11 @@
 import React from 'react'
 import './AddBtn.css'
 
-const AddBtn = () => {
+const AddBtn = (props) => {
 	return(
-			<div>
-				<div className="line" id="addLine1" ></div>
-				<div className="line" id="addLine2" ></div>
+			<div id="addBtnCon" onClick={() => props.addItem()} >
+				<div className="line addBtnLine" id="addLine1" ></div>
+				<div className="line  addBtnLine" id="addLine2" ></div>
 			</div>
 		);
 }
