@@ -1,14 +1,15 @@
 import React from 'react'
-import Btn from '../Btns/Btn/Btn'
-import './BtnBar.css'
+import AddBtn from '../Btns/AddBtn/AddBtn'
+import MenuBtn from '../Btns/MenuBtn/MenuBtn'
 
-const BtnBar = () => {
+
+const BtnBar = (props) => {
 	return(
 		<div id="barCon">
-			<div id="bar">
-				<Btn type="menu" size="2em" />
+			<div id="bar" >
+				<MenuBtn type="menu" size="2em" />
 				<div id="divider"></div>
-				<Btn type="add" size="2em" />
+				<AddBtn type="add" size="2em" addItem={props.addItem} />
 			</div>
 		</div>
 	);

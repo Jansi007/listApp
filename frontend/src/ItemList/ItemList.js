@@ -19,25 +19,26 @@ class ItemList extends Component{
 	}
 
 	addItem = () =>{
-		const mem = this.state.textBoxValue
-		const {listName} = this.props
+		console.log('addItem')
+		// const mem = this.state.textBoxValue
+		// const {listName} = this.props
 
-		if(this.state.addItem === false){
-			this.setState({ textBox: <TextBox onTextChange={this.onTextChange} />})
-			this.setState({ addItem: true})
-		}
-		else{
-			fetch('http://localhost:5000/addItem/', {
-			method: 'post',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({
-				list: listName,
-				item: mem
-			})
-		}).then(this.updateList)
-		this.setState({ textBox: undefined})
-		this.setState({ addItem: false})
-		}
+		// if(this.state.addItem === false){
+		// 	this.setState({ textBox: <TextBox onTextChange={this.onTextChange} />})
+		// 	this.setState({ addItem: true})
+		// }
+		// else{
+		// 	fetch('http://localhost:5000/addItem/', {
+		// 	method: 'post',
+		// 	headers: {'Content-Type': 'application/json'},
+		// 	body: JSON.stringify({
+		// 		list: listName,
+		// 		item: mem
+		// 	})
+		// }).then(this.updateList)
+		// this.setState({ textBox: undefined})
+		// this.setState({ addItem: false})
+		// }
 	}
 
 	delItem = (item) =>{
@@ -102,7 +103,7 @@ class ItemList extends Component{
 						</div>
 						<div id="addWrapper">
 							{this.state.textBox}
-							{/* <MaterialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
+							{/* <Mate**rialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
 							<BtnBar addItem={this.addItem} id="btnBar" />						
 						</div>
 					</div>
