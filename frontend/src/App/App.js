@@ -13,7 +13,7 @@ class App extends Component {
 	}
 
 	componentDidMount(){
-		this.setState({display: <List name={this.state.listName} color="teal" />})
+		this.setState({display: <List name={this.state.listName} color="#0099ff" />})
 	}
 
   render() {

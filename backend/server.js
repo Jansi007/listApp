@@ -54,11 +54,26 @@ app.post('/delItem/', (req, res) => {
 		})
 })
 
+app.put('/checkItem/', (req, res) => {
+	const {name, list, checkState} = req.body
+
+	console.log(list)
+
+	db(list)
+		.where('name', '=', name)
+		.update({
+			isChecked: checkState
+		})
+		.then(res.json('success'))
+		.catch(err => res.status(400).json('an error occurred'))
+})
+
 app.post('/getList/', (req, res) => {
 	const {list} = req.body
 
-	db.select('*')
-		.from(list)
+	db(list)
+		.orderBy('id')
+		.returning('list')
 		.then(data => res.json(data))
 		.catch(err => res.status(400).json('an error occurred'))
 })

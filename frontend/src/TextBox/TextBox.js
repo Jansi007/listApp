@@ -4,7 +4,8 @@ import './TextBox.css';
 class TextBox extends Component{
 	componentDidMount(){
 		const textBox = document.getElementById('textBox')
-		textBox.style="width: 12em;"
+		textBox.style="width: 14em;"
+
 	}
 
 	render(){

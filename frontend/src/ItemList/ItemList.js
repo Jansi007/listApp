@@ -68,8 +68,8 @@ class ItemList extends Component{
 		 .then(data => data.json())
 		 .then(data => {
 		 	const arr = []
-		 	data.map(item => arr.push(item.name))
-		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item} key={i} id={i} delItem={this.delItem} />}) })
+		 	data.map(item => arr.push({name: item.name, isChecekd: item.isChecekd}))
+		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecekd={item.isChecked} />}) })
 		 	if(arr){
 		 		this.setState({ divider: <div id="divider" className="divider"></div>})
 		 	}
@@ -94,16 +94,30 @@ class ItemList extends Component{
 		this.setState({textBoxValue: event.target.value})
 	}
 
+	checkItem = (itemName, checkState) => {
+		const {listName} = this.props
 
-	checkTextBox = () =>{
-		const {addItemState} = this.props
-		if(addItemState === true){
-			this.setState({ innerBar: <TextBox />})
-		}
-		else{
-			this.setState({ innerBar: <InnerBar />})
-		}
+		fetch('http://192.168.178.40:2000/checkItem/', {
+			method: 'put',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				list: listName,
+				name: itemName,
+				checkState: checkState
+
+			})
+		})
 	}
+
+	// checkTextBox = () =>{
+	// 	const {addItemState} = this.props
+	// 	if(addItemState === true){
+	// 		this.setState({ innerBar: <TextBox />})
+	// 	}
+	// 	else{
+	// 		this.setState({ innerBar: <InnerBar />})
+	// 	}
+	// }
 
 	render(){
 		return(
@@ -115,7 +129,6 @@ class ItemList extends Component{
 						</div>
 						<div id="addWrapper">
 							{this.state.textBox}
-							{/* <Mate**rialIcon icon="add_circle_outline" size={35} id="addIcon" onClick={this.addItem} /> */}
 							<BtnBar innerBarContent={this.state.innerBarContent} id="btnBar" />						
 						</div>
 					</div>

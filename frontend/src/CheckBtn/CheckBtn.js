@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './CheckBtn.css';
 
 class CheckBtn extends Component{
-
 	componentDidMount(){
 			const check = document.getElementById(this.props.id);
 			let stateCheck = false

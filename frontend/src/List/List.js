@@ -7,8 +7,8 @@ class List extends Component{
 	render(){
 		return(
 			<div id="List">
-				<TopBar name={this.props.name} />
-				<ItemList listName={this.props.name} />
+				<TopBar name={this.props.name} color={this.props.color} />
+				<ItemList listName={this.props.name} color={this.props.color} />
 			</div>
 			);
 	}
