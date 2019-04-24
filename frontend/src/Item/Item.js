@@ -7,7 +7,7 @@ class Item extends Component{
 		return(
 			<div id="itemCon">
 				<div id="inner">
-					<CheckBtn id={this.props.id} isChecked={this.props.isChecked} />
+					<CheckBtn id={this.props.id} isChecked={this.props.isChecked} checkItem={this.props.checkItem} itemName={this.props.inner} />
 					<p className="text" onClick={() => this.props.delItem(this.props.inner)} >{this.props.inner}</p>
 				</div>
 				<div className="divider"></div>

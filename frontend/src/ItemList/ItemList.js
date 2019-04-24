@@ -68,8 +68,10 @@ class ItemList extends Component{
 		 .then(data => data.json())
 		 .then(data => {
 		 	const arr = []
-		 	data.map(item => arr.push({name: item.name, isChecekd: item.isChecekd}))
-		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecekd={item.isChecked} />}) })
+		 	data.map(item => {
+		 		arr.push({name: item.name, isChecked: item.isChecked})
+		 	})
+		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecked={item.isChecked} checkItem={this.checkItem} />}) })
 		 	if(arr){
 		 		this.setState({ divider: <div id="divider" className="divider"></div>})
 		 	}
@@ -97,6 +99,8 @@ class ItemList extends Component{
 	checkItem = (itemName, checkState) => {
 		const {listName} = this.props
 
+		console.log('checkItem running!')
+
 		fetch('http://192.168.178.40:2000/checkItem/', {
 			method: 'put',
 			headers: {'Content-Type': 'application/json'},
@@ -106,7 +110,7 @@ class ItemList extends Component{
 				checkState: checkState
 
 			})
-		})
+		}).then(this.updateList)
 	}
 
 	// checkTextBox = () =>{
