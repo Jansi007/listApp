@@ -39,6 +39,8 @@ app.post('/addItem/', (req, res) => {
 	}else{
 		res.status(400).json('an error occurred')
 	}
+
+	
 })
 
 app.post('/delItem/', (req, res) => {

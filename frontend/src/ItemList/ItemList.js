@@ -67,9 +67,9 @@ class ItemList extends Component{
 		})
 		 .then(data => data.json())
 		 .then(data => {
-		 	const arr = []
-		 	data.map(item => {
-		 		arr.push({name: item.name, isChecked: item.isChecked})
+			 	const arr = []
+			 	data.map(item => {
+			 		return arr.push({name: item.name, isChecked: item.isChecked})
 		 	})
 		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecked={item.isChecked} checkItem={this.checkItem} />}) })
 		 	if(arr){
