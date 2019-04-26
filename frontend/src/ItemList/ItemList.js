@@ -15,8 +15,7 @@ class ItemList extends Component{
 			textBox: undefined,
 			textBoxValue: '',
 			divider: undefined,
-			innerBarContent: <InnerBar addItem={this.addItem} />
-
+			innerBarContent: <InnerBar addItem={this.addItem} />,
 		}
 	}
 
