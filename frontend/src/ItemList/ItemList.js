@@ -70,7 +70,7 @@ class ItemList extends Component{
 			 	data.map(item => {
 			 		return arr.push({name: item.name, isChecked: item.isChecked})
 		 	})
-		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecked={item.isChecked} checkItem={this.checkItem} />}) })
+		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecked={item.isChecked} checkItem={this.checkItem} color={this.props.color} />}) })
 		 	if(arr){
 		 		this.setState({ divider: <div id="divider" className="divider"></div>})
 		 	}
@@ -97,8 +97,6 @@ class ItemList extends Component{
 
 	checkItem = (itemName, checkState) => {
 		const {listName} = this.props
-
-		console.log('checkItem running!')
 
 		fetch('http://192.168.178.40:2000/checkItem/', {
 			method: 'put',

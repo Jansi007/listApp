@@ -2,28 +2,36 @@ import React, {Component} from 'react';
 import './CheckBtn.css';
 
 class CheckBtn extends Component{
+	constructor(){
+		super();
+		this.state = {
+			didRender: false
+		}
+	}
+
 	componentDidMount(){
-		const {isChecked, id} = this.props
+		const {isChecked, id, color} = this.props
+		const {didRender} = this.state
 		const check = document.getElementById(id);
 
-		if(isChecked){
-			check.style = "background-color: #40bf40; border-color: #40bf40;"
-		}else{
-			check.style = "background-color: none; border-color: #757575;"
+		if(!didRender){
+			if(isChecked){
+				check.style = `background-color: ${color}; border-color: ${color};`
+			}else{
+				check.style = "background-color: none; border-color: #757575;"
+			}
 		}
 	}
 
 	checkBtn = () => {
-		const {checkItem, isChecked, id} = this.props
+		const {checkItem, isChecked, id, color} = this.props
 		const check = document.getElementById(id);
 
-		if(isChecked){
-			console.log(isChecked)
-			checkItem(this.props.itemName, false)
-			check.style = "background-color: #40bf40; border-color: #40bf40;"
-		}else{
-			console.log(isChecked)
+		if(!isChecked){
 			checkItem(this.props.itemName, true)
+			check.style = `background-color: ${color}; border-color: ${color};`
+		}else{
+			checkItem(this.props.itemName, false)
 			check.style = "background-color: none; border-color: #757575;"
 		}
 	}

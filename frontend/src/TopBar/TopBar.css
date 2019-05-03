@@ -1,5 +1,6 @@
 #topBase{
 	width: 100%;
+	height: 20%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -9,7 +10,7 @@
 #heading{
 	color: #444444;
 	text-align: center;
-	font-size: 2em;
+	font-size: 2.5em;
 	font-weight: 300;
 	margin: 1em .5em;
 	border-radius: .2em;

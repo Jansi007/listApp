@@ -1,5 +1,6 @@
 #baseItemList{
 	width: 100%;
+	height: 80%;
 	display: flex;
 	justify-content: center;
 }
@@ -29,6 +30,7 @@
 
 #itemWrapper{
 	width: 100%;
+	height: 75%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -36,6 +38,7 @@
 
 #addWrapper{
 	width: 100%;
+	height: 25%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
