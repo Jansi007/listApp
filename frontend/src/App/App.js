@@ -4,44 +4,37 @@ import List from '../List/List'
 import Menu from '../Menu/Menu'
 
 
+
 class App extends Component {
 	constructor(){
 		super();
 		this.state = {
-			listName: 'test',
-      display: '',
-      color: '#0099ff',
+			listName: undefined,
+      display: undefined,
       isMenuActive: true,
-      listTag: undefined,
-      test: console.log()
+      openListAllowed: true
 		}
 	}
 
 	componentDidMount(){
-		const {listName, color, isMenuActive} = this.state
-		const listTag = <List name={listName} color={color} />
+		 this.setState({display: <Menu openList={this.openList} toggleOpenListAllowed={this.toggleOpenListAllowed} />, isMenuActive: true})
+	}
 
-		this.setState({display: listTag, listTag: listTag})
-
-		if(isMenuActive){
-			this.setState({display: <Menu />, isMenuActive: true})
-		}else{
-			this.setState({display: listTag, isMenuActive: false})
+	openList = (listName, color) =>{
+		if(this.state.openListAllowed){
+			this.setState({listName: listName, isMenuActive: false, display: <List listName={listName} color={color} openMenu={this.openMenu} />})
 		}
 	}
-	
-	toggleMenu = () => {
-		const {isMenuActive, listTag} = this.state
 
-		if(isMenuActive){
-			this.setState({display: listTag, isMenuActive: false})
-		}else{
-			this.setState({display: <Menu />, isMenuActive: true})
-		}
+	toggleOpenListAllowed = (toggle) =>{
+		this.setState({ openListAllowed: toggle })
+	}
+
+	openMenu = () => {
+		this.setState({listName: undefined, isMenuActive: true, display:<Menu openList={this.openList} toggleOpenListAllowed={this.toggleOpenListAllowed} />})
 	}
 
   render() {
-  	console.log(this.state.display)
     return (
       <div id="app">
     		{this.state.display}

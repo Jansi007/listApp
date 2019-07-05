@@ -7,15 +7,14 @@ import InnerBar from '../InnerBar/InnerBar'
 
 class ItemList extends Component{
 
-	constructor(){		
-		super();
+	constructor(props){		
+		super(props);
 		this.state = {
 			itemsInList: [],
 			addItem: false,
 			textBox: undefined,
 			textBoxValue: '',
-			divider: undefined,
-			innerBarContent: <InnerBar addItem={this.addItem} />,
+			innerBarContent: <InnerBar openMenu={this.props.openMenu} addItem={this.addItem} />
 		}
 	}
 
@@ -24,11 +23,11 @@ class ItemList extends Component{
 		const {listName} = this.props
 
 		if(this.state.addItem === false){
-			this.setState({ innerBarContent: <TextBox onTextChange={this.onTextChange} />})
+			this.setState({ innerBarContent: <TextBox onTextChange={this.onTextChange} addItem={this.addItem} closeAddItem={this.closeAddItem} />})
 			this.setState({ addItem: true})
 		}
 		else{
-		this.setState({ innerBarContent: <InnerBar addItem={this.addItem} />})
+		this.setState({ innerBarContent: <InnerBar addItem={this.addItem} openMenu={this.props.openMenu} />})
 			fetch('http://192.168.178.40:2000/addItem/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
@@ -39,6 +38,10 @@ class ItemList extends Component{
 		}).then(this.updateList)
 		this.setState({ textBox: undefined, textBoxValue: undefined, addItem: false })
 		}
+	}
+
+	closeAddItem = () =>{
+		this.setState({ textBox: undefined, textBoxValue: undefined, addItem: false, innerBarContent: <InnerBar addItem={this.addItem} openMenu={this.props.openMenu} /> })
 	}
 
 	delItem = (item) =>{
@@ -71,9 +74,6 @@ class ItemList extends Component{
 			 		return arr.push({name: item.name, isChecked: item.isChecked})
 		 	})
 		 	this.setState({ itemsInList: arr.map((item, i) => {return <Item inner={item.name} key={i} id={i} delItem={this.delItem} isChecked={item.isChecked} checkItem={this.checkItem} color={this.props.color} />}) })
-		 	if(arr){
-		 		this.setState({ divider: <div id="divider" className="divider"></div>})
-		 	}
 		 })
 	}
 
@@ -85,10 +85,6 @@ class ItemList extends Component{
 				this.addItem()
 			}
 		})
-
-		fetch('http://192.168.178.40:2000/')
-			.then(data => data.json())
-			.then(data => console.log(data))
 	}
 
 	onTextChange = (event) =>{
@@ -110,22 +106,11 @@ class ItemList extends Component{
 		}).then(this.updateList)
 	}
 
-	// checkTextBox = () =>{
-	// 	const {addItemState} = this.props
-	// 	if(addItemState === true){
-	// 		this.setState({ innerBar: <TextBox />})
-	// 	}
-	// 	else{
-	// 		this.setState({ innerBar: <InnerBar />})
-	// 	}
-	// }
-
 	render(){
 		return(
 				<div id="baseItemList">
 					<div id="wrapper">
-						<div id="itemWrapper">
-							{this.state.divider}
+						<div id="itemContainer">
 							{this.state.itemsInList}
 						</div>
 						<div id="addWrapper">

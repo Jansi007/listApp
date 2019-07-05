@@ -1,0 +1,57 @@
+#addListMenuContainer{
+	width: 80%;
+	height: 3em;
+	border-radius: 1.6em;
+	margin-bottom: 1em;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	box-shadow: .2em .2em 1em #888888;
+	background-color: #444444;
+}
+
+.addListMenuInput{
+	border: none;
+	height: auto;
+	width: 60%;
+	color: #ffffff;
+	font-family: 'Lato', sans-serif;
+	background-color: #444444;
+	text-indent: 0;
+	font-size: 1em;
+}
+
+.addListMenuInput:focus{
+	outline: none;
+}
+
+.addListMenuInput::placeholder{
+	color: #aaaaaa;
+}
+
+.rightArrowContainer{
+	width: 20%;
+	height: 100%;
+	border-radius: 0 2em 2em 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.right_arrow{
+	height: 1.6em;
+}
+
+.leftIconContainer{
+	width: 20%;
+	height: 100%;
+	border-radius: 2em 0 0 2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.letter_x{
+	height: 1.2em;
+}

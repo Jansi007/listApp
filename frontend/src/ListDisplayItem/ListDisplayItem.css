@@ -1,0 +1,85 @@
+.ListDisplayItemWrapper{
+	width: 80%;
+	height: 5em;
+	margin: .5em 0;
+}
+
+.ListDisplayItemContainer{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ListDisplayContainer{
+	width: 100%;
+	height: 5em;
+	min-height: 5em;
+	background-color: #eeeeee;
+	border-radius: 1em;
+	margin: .5em 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: row;
+	position: relative;
+	transition: 200ms width;
+}
+
+.menuListName{
+	color: #444444;
+}
+
+.menuListItemLeft{
+	height: 90%;
+	width: 40%;
+}
+
+.menuListItemRight{
+	height: 90%;
+	width: 40%;
+}
+
+.menuListItemTitle{
+	font-weight: 400;
+}
+
+.menuListColorIdentifier{
+	height: 1em;
+	width: 1em;
+	border-radius: 1em;
+	background-color: black;
+	position: absolute;
+	left: 1em;
+	top: 1em;
+}
+
+.menuListItemInfo{
+	width: 4em;
+	height: 90%;
+	position: absolute;
+	right: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.deleteBtn{
+	width: 0%;
+	height: 5em;
+	background-color: #ff6666;
+	border-radius: 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #ffffff;
+}
+
+.deleteBtnText{
+	display: none;
+}
+
+.swipeEvent{
+	width: 100%;
+}

@@ -25,7 +25,7 @@ class CheckBtn extends Component{
 
 	checkBtn = () => {
 		const {checkItem, isChecked, id, color} = this.props
-		const check = document.getElementById(id);
+		const check = document.getElementById(id)
 
 		if(!isChecked){
 			checkItem(this.props.itemName, true)

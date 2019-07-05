@@ -5,10 +5,10 @@ import AddBtn from '../Btns/AddBtn/AddBtn'
 
 const InnerBar = (props) =>{
 	return(
-		<div id="bar" >
-			<MenuBtn type="menu" size="2em" />
+		<div id="bar">
+			<MenuBtn type="menu" size="2em" openMenu={props.openMenu} />
 			<div id="divider"></div>
-			<AddBtn type="add" size="2em" addItem={props.addItem} />
+			<AddBtn type="add" size="2em" function={props.addItem} />
 		</div>
 	);
 }

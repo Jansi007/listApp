@@ -1,10 +1,9 @@
 #barCon{
-	height: 4em;
+	height: 100%;
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	background-image: linear-gradient(#ffffff01, #ffffffff);
-	padding-top: 3em;
+	align-items: flex-end;
+	background-image: linear-gradient(#ffffff00, #ffffffff, #ffffffff);
 }
 

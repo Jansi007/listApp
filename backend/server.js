@@ -59,7 +59,7 @@ app.post('/delItem/', (req, res) => {
 app.put('/checkItem/', (req, res) => {
 	const {name, list, checkState} = req.body
 
-	console.log(list)
+	console.log(checkState)
 
 	db(list)
 		.where('name', '=', name)
@@ -88,14 +88,17 @@ app.post('/getAllLists/', (req, res) => {
 
 app.post('/addList/', (req, res) => {
 	
-	const {name, renew, hr} = req.body
+	const {name, renew, hr, color} = req.body
+
+	console.log(color)
 
 	db.transaction(trx => {
 
 		trx.insert({
 			name: name,
 			renew: renew,
-			hr: hr
+			hr: hr,
+			color: color
 		})
 		.into('lists')
 		.returning('name')
@@ -103,6 +106,7 @@ app.post('/addList/', (req, res) => {
 			return trx.schema.createTable(listName[0], table => {
 					table.increments();
 					table.string('name').unique();
+					table.boolean('isChecked');
 				})
 			.then(data => console.log(data[0].command + " '" + listName + "' "))
 			.catch(err => {
@@ -139,4 +143,3 @@ app.post('/delList/', (req, res) => {
 })
 
 app.listen(port, () => console.log(`This server is listening on port ${port}`))
-

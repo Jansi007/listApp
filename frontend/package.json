@@ -8,6 +8,8 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "^2.1.8",
+    "react-swipe-events": "^1.0.3",
+    "react-transition-group": "^4.1.0",
     "serve": "^11.0.0"
   },
   "scripts": {
