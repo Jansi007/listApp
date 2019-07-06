@@ -33,7 +33,7 @@ class AddListMenu extends Component{
 			hr = 2
 		}
 
-		fetch('http://192.168.178.40:2000/addList/', {
+		fetch('http://192.168.178.93:2000/addList/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

@@ -28,7 +28,7 @@ class ItemList extends Component{
 		}
 		else{
 		this.setState({ innerBarContent: <InnerBar addItem={this.addItem} openMenu={this.props.openMenu} />})
-			fetch('http://192.168.178.40:2000/addItem/', {
+			fetch('http://192.168.178.93:2000/addItem/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -47,7 +47,7 @@ class ItemList extends Component{
 	delItem = (item) =>{
 		const {listName} = this.props
 
-		fetch('http://192.168.178.40:2000/delItem/', {
+		fetch('http://192.168.178.93:2000/delItem/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -60,7 +60,7 @@ class ItemList extends Component{
 	updateList = () =>{
 		const {listName} = this.props
 
-		fetch('http://192.168.178.40:2000/getList/', {
+		fetch('http://192.168.178.93:2000/getList/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -94,7 +94,7 @@ class ItemList extends Component{
 	checkItem = (itemName, checkState) => {
 		const {listName} = this.props
 
-		fetch('http://192.168.178.40:2000/checkItem/', {
+		fetch('http://192.168.178.93:2000/checkItem/', {
 			method: 'put',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

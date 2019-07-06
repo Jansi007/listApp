@@ -19,7 +19,7 @@ class Menu extends Component{
 	}
 
 	updateList = () =>{
-		fetch('http://192.168.178.40:2000/getAllLists/', {
+		fetch('http://192.168.178.93:2000/getAllLists/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -42,7 +42,7 @@ class Menu extends Component{
 	}
 
 	delList = (listName) =>{
-			fetch('http://192.168.178.40:2000/delList/', {
+			fetch('http://192.168.178.93:2000/delList/', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
