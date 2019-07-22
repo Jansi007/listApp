@@ -48,7 +48,7 @@ class Menu extends Component{
 			body: JSON.stringify({
 				name: listName
 			})
-		}).then(setTimeout(()=>{this.updateList()}, 100))
+		}).then(setTimeout(()=>{this.updateList()}, 1000))
 	}
 
 	render(){
